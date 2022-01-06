@@ -1,5 +1,6 @@
 #include<unistd.h>
 #include<stdio.h>
+#include</usr/include/errno.h> // 추가
 
 extern int errno;
 
