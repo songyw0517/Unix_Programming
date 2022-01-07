@@ -12,7 +12,7 @@ int main(void){
     if (access("unix.txt", R_OK) == -1){
         err = strerror(errno);
         printf("오류 : %s(unix.txt)\n", err);
-        exti(1);
+        exit(1);
     }
     return 0;
 }
