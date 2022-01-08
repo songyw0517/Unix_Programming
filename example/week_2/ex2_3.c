@@ -17,3 +17,8 @@ int main(void) {
     close(fd);
     return 0;
 }
+/*
+$ gcc -o ex2_3.out ex2_3.c
+$ ./ex2_3.out
+unix.txt : fd = 0
+*/
