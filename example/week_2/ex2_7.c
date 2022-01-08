@@ -19,3 +19,10 @@ int main(void) {
     close(fd);
     return 0;
 }
+/*
+$ gcc -o ex2_7.out ex2_7.c
+$ ./ex2_7.out
+$ cat tmp.aaa
+DUP FD=1
+Standard Output Redirection
+*/
