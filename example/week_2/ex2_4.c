@@ -27,3 +27,13 @@ int main(void) {
     
     return 0;
 }
+/*
+$ ls unix.bak
+ls: cannot access 'unix.bak': No such file or directory
+$ vi unix.txt
+'Unix System Programming' 작성
+$ gcc -o ex2_4.out ex2_4.c
+$ ./ex2_4.out
+$ cat unix.bak
+Unix System Programming
+*/
