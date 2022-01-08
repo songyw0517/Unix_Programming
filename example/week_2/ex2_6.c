@@ -14,14 +14,17 @@ int main(void) {
         exit(1);
     }
 
-    start = lseek(fd, 0, SEEK_CUR);
-    n = read(fd, buf, 255);
-    buf[n] = '\0';
+    start = lseek(fd, 0, SEEK_CUR); // 현재 위치 0
+    n = read(fd, buf, 255); // 225bytes만큼 읽음, n에는 글자수가 들어감
+    buf[n] = '\0'; // 마지막임을 알려주는 문자
+    // start = 0, buf = "Unix System Programming\0", n=24
     printf("Offset start=%d, Read Str=%s, n=%d\n", (int)start, buf, n);
 
+    // 현재 위치 cur = 24
     cur = lseek(fd, 0, SEEK_CUR);
     printf("Offset cur=%d\n", (int)cur);
-    
+
+    // 파일의 시작 기준으로 5만큼 이동, start=5
     start = lseek(fd, 5, SEEK_SET);
     n = read(fd, buf, 255);
     buf[n] = '\0';
