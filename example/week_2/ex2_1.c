@@ -19,3 +19,11 @@ int main(void) {
         close(fd);
         return 0;
 }
+/*
+$ ls unix.txt
+ls: cannot access 'unix.txt': No such file or directory
+$ gcc -o ex2_1.out ex2_1.c
+$ ./ex2_1.out
+$ ls -l unix.txt
+-rw-r--r-- 1 scof scof 0 Jan  8 16:00 unix.txt
+*/
