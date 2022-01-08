@@ -16,3 +16,17 @@ int main(void) {
     close(fd);
     return 0;
 }
+/*
+파일이 이미 존재할 경우
+$ ls unix.txt
+unix.txt
+$ gcc -o ex2_2.out ex2_2.c
+$ ./ex2_2.out
+Excl: File exists
+
+파일이 없을 경우
+$ rm unix.txt
+$ ./ex2_2.out
+$ ls unix.txt
+unix.txt
+*/
