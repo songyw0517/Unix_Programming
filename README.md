@@ -141,6 +141,21 @@ whence
     - SEEK_END : 파일의 끝 기준
 ```
 
+## 파일 기술자 복사 : dup
+- 기존 파일 기술자를 인자로 받아 새로운 파일 기술자를 리턴
+- 새로운 파일 기술자는 현재 할당할 수 있는 파일 기술자 중 가장 작은 값으로 자동할당
+``` C
+#include <unistd.h>
+int dup(int fildes)
+```
+
+## 파일 기술자 복사 : dup2
+- 새로운 파일 기술자를 지정할 수 있다.
+``` C
+#include <unistd.h>
+int dup2(int fildes, int fildes2)
+```
+
 # 명령어
 ## man (메뉴얼)
 - 명령어의 메뉴얼의 내용을 보여준다.
