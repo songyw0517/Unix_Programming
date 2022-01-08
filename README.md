@@ -109,8 +109,22 @@ int create(const char *path, mode_t mode);
 #include <unistd.h>
 int close(int fildes);
 ```
-
-
+## 파일 읽기 : read
+- 파일에서 nbytes로 지정한 크기만큼 바이트를 읽어서 buf에 저장
+- 실제로 읽어온 바이트 개수를 리턴
+- 리턴값이 0이면 파일의 끝에 도달했음을 의미
+- 파일의 종류에 상관없이 무조건 바이트 단위로 읽어온다.
+``` C
+#include <unistd.h>
+ssize_t read(int fileds, void *buf, size_t nbytes);
+```
+## 파일 쓰기 : write
+- buf가 가리키는 메모리에서 nbytes로 지정한 크기만큼 파일에 기록
+- 실제로 쓰기를 수행한 바이트 수 리턴
+``` C
+#include <unistd.h>
+ssize_t write(int fildes, const void *buf, size_t nbytes);
+```
 
 
 
