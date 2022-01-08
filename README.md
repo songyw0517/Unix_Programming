@@ -126,7 +126,20 @@ ssize_t read(int fileds, void *buf, size_t nbytes);
 ssize_t write(int fildes, const void *buf, size_t nbytes);
 ```
 
+## 파일 오프셋 위치 지정 : lseek
+- offset으로 지정한 크기만큼 오프셋을 이동시킨다.
+- offset의 값은 whence값을 기준으로 해석한다.
+``` C
+#include <sys/types.h>
+#include <unistd.h>
+off_t lseek(int fildes, off_t offset, int whence);
 
+whence
+- offset의 기준
+    - SEEK_SET : 파일의 시작 기준
+    - SEEK_CUR : 현재 위치 기준
+    - SEEK_END : 파일의 끝 기준
+```
 
 # 명령어
 ## man (메뉴얼)
