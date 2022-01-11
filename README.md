@@ -80,6 +80,7 @@ int open(const char *path, int oflag [, mode_t mode]);
     - O_TRUNC | O_CREAT : 파일을 생성할 때 이미 있는 파일이고 쓰기 옵션으로 열었으면 내용을 모두 지우고 파일의 길이를 0으로 변경한다.
     - O_NONBLOCK/O_NDELAY : 비블로킹(Non-blocking) 입출력
     - O_SYNC/O_DSYNC : 저장장치에 쓰기가 끝나야 쓰기 동작을 완료
+
 - mode : 파일 접근 권한 지정, 0644같이 숫자나 플래그 값으로 지정 가능
     - S_IRWXU   0700    소유자 읽기/쓰기/실행 권한
     - S_IRUSR   0400    소유자 읽기 권한
@@ -94,7 +95,7 @@ int open(const char *path, int oflag [, mode_t mode]);
     - S_IWOTH   0002    기타 사용자 쓰기 권한
     - S_IXOTH   0001    기타 사용자 실행 권한
 ```
-## 파일 생성 : create
+## 파일 생성 : creat
 - 파일 생성 함수, open 함수에 파일 생성 기능이 없던 구버전 유닉스에서 사용 (요즘 사용X)
 - open 함수와 달리 옵션을 지정하는 부분이 없다.
 - create 함수로 파일을 생성하면 파일 기술자를 리턴하므로 별도로 open할 필요 없음
@@ -102,7 +103,7 @@ int open(const char *path, int oflag [, mode_t mode]);
 ``` C
 #include <sys/stat.h>
 #include <fcntl.h>
-int create(const char *path, mode_t mode);
+int creat(const char *path, mode_t mode);
 ```
 ## 파일 닫기 : close
 ``` C

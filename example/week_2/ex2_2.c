@@ -2,9 +2,16 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+// open, creat을 사용하기 위한 헤더파일
+
 #include <unistd.h>
+// close를 사용하기 위한 헤더파일
+
 #include <stdlib.h>
+// exit를 사용하기 위한 헤더파일
+
 #include <stdio.h>
+// perror를 사용하기 위한 헤더파일
 int main(void) {
     int fd;
     fd = open("unix.txt", O_CREAT | O_EXCL, 0644);

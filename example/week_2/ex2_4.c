@@ -16,7 +16,7 @@ int main(void) {
         perror("Open unix.bak");
         exit(1);
     }
-    // rfd로부터 6바이트씩 읽어 buf에 저장, n에는 글자수가 저장됨
+    // rfd로부터 6바이트씩 읽어 buf에 저장, n에는 글자수가 저장됨 (read의 반환값)
     while ((n = read(rfd, buf, 6)) > 0) 
     // wfd에 n바이트 만큼 파일에 기록, 글자수가 n이 아닐 경우 에러 발생
     if (write(wfd, buf, n) != n) perror("Write");
