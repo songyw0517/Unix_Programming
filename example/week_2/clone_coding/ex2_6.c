@@ -4,7 +4,7 @@
 #include <stdio.h>
 int main(void) {
     int fd, n;
-    off_t start, cur;
+    off_t start, cur; // 오프셋
     char buf[256];
     fd = open("unix.txt", O_RDONLY); // 읽기 전용으로 읽음
 
@@ -17,6 +17,7 @@ int main(void) {
     start = lseek(fd, 0, SEEK_CUR); // 현재 위치 0
     n = read(fd, buf, 255); // 225bytes만큼 읽음, n에는 글자수가 들어감
     buf[n] = '\0'; // 마지막임을 알려주는 문자
+
     // start = 0, buf = "Unix System Programming\0", n=24
     printf("Offset start=%d, Read Str=%s, n=%d\n", (int)start, buf, n);
 
