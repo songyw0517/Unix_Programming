@@ -134,6 +134,57 @@ int dup(int fildes)
 int dup2(int fildes, int fildes2)
 ```
 
+## 파일 기술자 제어 : fcntl
+- 파일 기술자가 가리키는 파일에 cmd로 지정한 명령을 수행
+- cmd의 종류에 따라 인자(arg)를 지정할 수 있음
+- 자주 사용하는 cmd
+    - F_GETFL : 상태 플래그 정보를 읽어온다.
+    - F_SETFL : 상태 플래그 정보를 설정한다. 설정할 수 있는 플래그는 대부분 open 함수에서 지정하는 플래그이다.
+
+# 고수준 파일 입출력 : 표준 입출력 라이브러리
+## 파일 열기 : fopen
+- filename으로 지정한 파일을 mode로 지정한 모드에 따라 열고 파일 포인터를 리턴
+``` C
+#include <stdio.h>
+FILE *fopen(const char *filename, const char *mode);
+```
+
+## 파일 닫기 : fclose
+``` C
+#include <stdio.h>
+int fclose(FILE *stream);
+
+filename : 파일이름
+mode : 모드
+    - r : 읽기 전용
+    - w : 새로 쓰기용, 기존 내용은 삭제
+    - a : 추가용
+    - rb : 읽기 전용, 바이너리
+    - wb : 새로 쓰기용, 바이너리, 기존 내용 삭제
+    - ab : 추가용, 바이너리
+    - r+ : 읽기와 쓰기용
+    - w+ : 쓰기와 읽기용
+    - a+ : 추가와 읽기용
+    - rb+ : 읽기와 쓰기용, 바이너리
+    - wb+ : 쓰기와 읽기용, 바이너리
+    - ab+ : 추가와 읽기용, 바이너리
+
+```
+## 문자 기반 입력함수 : fgetc, getc, getchar, getw
+``` C
+#include <stdio.h>
+int fgetc(FILE *stream);
+: 문자 한 개를 unsigned char 형태로 읽어온다.
+
+int getc(FILE *stream);
+int getchar(void);
+: 매크로
+
+int getw(FILE *stream);
+: 워드 단위로 읽어온다.
+```
+
+
 # 명령어
 ## man (메뉴얼)
 - 명령어의 메뉴얼의 내용을 보여준다.

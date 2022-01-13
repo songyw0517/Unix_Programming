@@ -11,8 +11,17 @@ int main(void) {
     int fd;
     mode_t mode;
     mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH; // 권한 : 644
-    fd = open("unix.txt", O_CREAT, mode);
+    /*
+    S_IRUSR : USER에 R 권한
+    S_IWUSR : USER에 W 권한
+    S_IRGRP : GROUP에 R 권한
+    S_IROTH : OTHER에 R 권한
+    
+    USER/GROUP/OTHER : RW-R--R--
+    */
+    fd = open("unix.txt", O_CREAT, mode); // unix.txt파일이 없으면 파일 생성, 권한 설정
     if (fd == -1) {
+        // 실패시 에러발생
         perror("Creat");
         exit(1);
         }

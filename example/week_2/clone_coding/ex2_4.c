@@ -6,11 +6,15 @@
 int main(void) {
     int rfd, wfd, n; // 파일 기술자 rfd, wfd
     char buf[10]; // 버퍼
-    rfd = open("unix.txt", O_RDONLY); // 읽기 전용으로 읽어오기
+    // 읽기 전용으로 읽어오기
+    rfd = open("unix.txt", O_RDONLY);
+
     if(rfd == -1) {
         perror("Open unix.txt");
         exit(1);
     }
+
+    // 쓰기 전용으로 읽어오기
     wfd = open("unix.bak", O_CREAT | O_WRONLY | O_TRUNC, 0644);
     if (wfd == -1) {
         perror("Open unix.bak");
@@ -18,6 +22,7 @@ int main(void) {
     }
     // rfd로부터 6바이트씩 읽어 buf에 저장, n에는 글자수가 저장됨 (read의 반환값)
     while ((n = read(rfd, buf, 6)) > 0) 
+    
     // wfd에 n바이트 만큼 파일에 기록, 글자수가 n이 아닐 경우 에러 발생
     if (write(wfd, buf, n) != n) perror("Write");
     
