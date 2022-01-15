@@ -1,3 +1,4 @@
+// 문자 기반 입출력 함수 사용하기
 #include <stdlib.h>
 #include <stdio.h>
 
